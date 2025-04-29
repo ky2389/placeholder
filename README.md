@@ -73,46 +73,6 @@ print("\nMissing values per column:")
 print(df.isnull().sum())
 ```
 
-### Data Cleaning Example
-
-```python
-# Handle missing values
-df['age'].fillna(df['age'].median(), inplace=True)
-df['income'].fillna(df['income'].mean(), inplace=True)
-
-# Remove outliers using IQR method
-def remove_outliers(df, column):
-    Q1 = df[column].quantile(0.25)
-    Q3 = df[column].quantile(0.75)
-    IQR = Q3 - Q1
-    lower_bound = Q1 - 1.5 * IQR
-    upper_bound = Q3 + 1.5 * IQR
-    return df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
-
-df = remove_outliers(df, 'income')
-```
-
-### Visualization Example
-
-```python
-# Create a correlation heatmap
-plt.figure(figsize=(10, 8))
-correlation_matrix = df.corr()
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
-plt.title('Correlation Matrix of Variables')
-plt.tight_layout()
-plt.savefig('correlation_heatmap.png', dpi=300)
-plt.show()
-
-# Create a scatter plot with regression line
-plt.figure(figsize=(10, 6))
-sns.regplot(x='age', y='spending_score', data=df, scatter_kws={'alpha':0.6}, line_kws={'color':'red'})
-plt.title('Relationship Between Age and Spending Score')
-plt.xlabel('Age')
-plt.ylabel('Spending Score (1-100)')
-plt.tight_layout()
-plt.show()
-```
 
 ## Mathematical Formulas
 
@@ -132,12 +92,6 @@ Where:
 - x_i^(j) is the i-th data point in cluster j
 - c_j is the center of cluster j
 
-## Submission Guidelines
-
-1. Submit a Jupyter notebook with your complete analysis
-2. Include all visualizations
-3. Write a 1-2 page report summarizing your findings
-4. Submit the cleaned dataset
 
 ## Evaluation Criteria
 
@@ -149,14 +103,5 @@ Where:
 | Conclusions | 15% | Validity and usefulness of findings |
 | Code Quality | 10% | Organization, documentation, and efficiency |
 
-## Additional Resources
 
-- [Pandas Documentation](https://pandas.pydata.org/docs/)
-- [Seaborn Gallery](https://seaborn.pydata.org/examples/index.html)
-- [Scikit-learn Tutorials](https://scikit-learn.org/stable/tutorial/index.html)
-
-> **Note**: Remember that clear communication of your findings is just as important as the technical analysis itself!
-
-![Data Analysis Process](https://example.com/data_analysis_workflow.png)
-
-Good luck with your project!
+![Data Analysis Process](./test_img.png)
