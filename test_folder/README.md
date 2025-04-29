@@ -103,4 +103,4 @@ Where:
 | Conclusions | 15% | Validity and usefulness of findings |
 | Code Quality | 10% | Organization, documentation, and efficiency |
 
-
+![Data Analysis Process](./test_img.png)
